@@ -220,7 +220,11 @@ typedef enum : NSUInteger {
         _messageView = [[UILabel alloc] initWithFrame:CGRectMake(margin, margin, self.alertView.frame.size.width-margin*2.0, scaleHeight)];
         _messageView.textColor = [UIColor colorWithRed:0x33/255.0 green:0x33/255.0 blue:0x33/255.0 alpha:1];
         _messageView.textAlignment = NSTextAlignmentCenter;
-        _messageView.font = [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize];
+        if (@available(iOS 9.0, *)) {
+            _messageView.font = [UIFont fontWithName:@"PingFangSC-Regular" size:fontSize];
+        }else{
+            _messageView.font = [UIFont fontWithName:@"STHeitiSC-Light" size:fontSize];
+        }
         _messageView.numberOfLines = 3;
         [self.alertView addSubview:_messageView];
     }
@@ -237,7 +241,11 @@ typedef enum : NSUInteger {
     click.tag = tag;
     [click setTitle:self.titles[tag] forState:UIControlStateNormal];
     [click setTitleColor:self.titleColors[tag] forState:UIControlStateNormal];
-    [click.titleLabel setFont:[UIFont fontWithName:@"PingFangSC-Regular" size:fontSize]];
+    if (@available(iOS 9.0, *)) {
+        [click.titleLabel setFont:[UIFont fontWithName:@"PingFangSC-Regular" size:fontSize]];
+    }else{
+        [click.titleLabel setFont:[UIFont fontWithName:@"STHeitiSC-Light" size:fontSize]];
+    }
     [self.alertView addSubview:click];
     [click addTarget:self action:@selector(alertActionClick:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -252,7 +260,11 @@ typedef enum : NSUInteger {
     click.backgroundColor = [UIColor whiteColor];
     [click setTitle:self.titles[tag] forState:UIControlStateNormal];
     [click setTitleColor:self.titleColors[tag] forState:UIControlStateNormal];
-    [click.titleLabel setFont:[UIFont fontWithName:@"PingFangSC-Regular" size:fontSize]];
+    if (@available(iOS 9.0, *)) {
+        [click.titleLabel setFont:[UIFont fontWithName:@"PingFangSC-Regular" size:fontSize]];
+    }else{
+        [click.titleLabel setFont:[UIFont fontWithName:@"STHeitiSC-Light" size:fontSize]];
+    }
     [self.animationView addSubview:click];
     [click addTarget:self action:@selector(alertActionClick:) forControlEvents:UIControlEventTouchUpInside];
     

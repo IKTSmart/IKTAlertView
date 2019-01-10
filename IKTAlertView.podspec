@@ -2,7 +2,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'IKTAlertView'
-  s.version          = '0.0.1'
+  s.version          = '0.0.2'
   s.summary          = 'iOS弹窗'
 
   s.description      = <<-DESC
